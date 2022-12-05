@@ -1,16 +1,21 @@
 import css from './ContactElement.module.css';
 import PropTypes from 'prop-types';
 
-export const ContactElement = ({ id, name, number, onDeleteBtn }) => {
+  const deleteContact = contactId => {
+    const newArray = contacts.filter(contact => contact.id !== contactId);
+    setContacts(newArray);
+  };
+
+export const ContactElement = ({ id, name, number}) => {
   return (
-    <li className={css.contact__item}>
+    <div>
       <span className={css.contact__name}>
         {name}: {number}
       </span>
-      <button type="button" onClick={() => onDeleteBtn(id)}>
+      <button type="button" onClick={() => deleteContact(id)}>
         Delete
       </button>
-    </li>
+    </div>
   );
 };
 
@@ -18,5 +23,4 @@ ContactElement.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  onDeleteBtn: PropTypes.func.isRequired,
 }

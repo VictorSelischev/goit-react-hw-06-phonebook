@@ -37,9 +37,9 @@ export const App = () => {
     setContacts(newArray);
   };
 
-  const handleChangeFilter = evt => {
-    setFilter(evt.target.value);
-  };
+  // const handleChangeFilter = evt => {
+  //   setFilter(evt.target.value);
+  // };
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();

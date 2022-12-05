@@ -2,14 +2,9 @@ import css from './Filter.module.css';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-export const Filter = () => {
-  
-  // const handleChangeFilter = evt => {
-  //   setFilter(evt.target.value);
-  // };
-
+export const Filter = ({ changeFilter }) => {
   const filter = useSelector(state => state.filter);
-    console.log(filter);
+  console.log(filter);
   return (
     <label className={css.formAddBook__label}>
       Find contacts by name
@@ -17,7 +12,7 @@ export const Filter = () => {
         className={css.formAddBook__input}
         type="text"
         value={filter}
-        onChange={handleChangeFilter}
+        onChange={changeFilter}
       />
     </label>
   );

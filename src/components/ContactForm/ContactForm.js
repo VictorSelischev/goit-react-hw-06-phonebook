@@ -8,6 +8,8 @@ export const ContactForm = ({ onSubmitProp }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
+  const contacts = useSelector(state => state.contacts);
+
   const handleChange = e => {
     const { name, value } = e.target;
 
