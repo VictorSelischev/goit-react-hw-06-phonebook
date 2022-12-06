@@ -1,39 +1,27 @@
 import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
+import { getContacts } from 'redux/selectors';
 
-export const ContactForm = ({ onSubmitProp }) => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+export const ContactForm = () => {
 
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(getContacts);
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
-  };
-
-  const reset = () => {
-    setName('');
-    setNumber('');
+  const addContact = data => {
+    contacts.find(
+      contact => data.name.toLowerCase() === contact.name.toLocaleLowerCase()
+    )
+      ? alert(`${data.name} is already in contacts`)
+      : contacts = [data, ...contacts];
   };
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    onSubmitProp({ id: nanoid(), name: name, number: number });
-    reset();
+    const form = evt.target;
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+    addContact({ id: nanoid(), name: name, number: number });
+    form.reset();
   };
 
   return (
@@ -44,11 +32,9 @@ export const ContactForm = ({ onSubmitProp }) => {
           className={css.formAddBook__input}
           type="text"
           name="name"
-          value={name}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
-          onChange={handleChange}
         />
       </label>
       <label className={css.formAddBook__label}>
@@ -57,18 +43,12 @@ export const ContactForm = ({ onSubmitProp }) => {
           className={css.formAddBook__input}
           type="tel"
           name="number"
-          value={number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          onChange={handleChange}
         />
       </label>
       <button type="submit">Add contact</button>
     </form>
   );
-};
-
-ContactForm.propTypes = {
-  onSubmitProp: PropTypes.func.isRequired,
 };

@@ -1,9 +1,9 @@
 import css from './Filter.module.css';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { getFilter } from 'redux/selectors';
 
-export const Filter = ({ changeFilter }) => {
-  const filter = useSelector(state => state.filter);
+export const Filter = () => {
+  const filter = useSelector(getFilter);
   console.log(filter);
   return (
     <label className={css.formAddBook__label}>
@@ -11,14 +11,8 @@ export const Filter = ({ changeFilter }) => {
       <input
         className={css.formAddBook__input}
         type="text"
-        value={filter}
-        onChange={changeFilter}
+        name='filter'
       />
     </label>
   );
-};
-
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  changeFilter: PropTypes.func.isRequired,
 };
