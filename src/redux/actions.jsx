@@ -22,3 +22,5 @@ const setValueFilter = {
     type: 'filter/setValueFilter',
     payload: 'Filter value',
 }
+
+
