@@ -18,7 +18,7 @@ const deleteContact = {
     payload: 'Contact Id',
 }
 
-const changeFilter = {
-    type: 'filter/changeFilter',
+const setValueFilter = {
+    type: 'filter/setValueFilter',
     payload: 'Filter value',
 }
