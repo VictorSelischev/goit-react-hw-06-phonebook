@@ -1,5 +1,4 @@
-// import { nanoid } from 'nanoid';
-const { nanoid } = require("@reduxjs/toolkit")
+import { nanoid } from 'nanoid';
 
 - Добавить новый контакт с именем и телефоном, введенные пользователем;
 - Удалить контакт из телефонной книги;
@@ -19,4 +18,7 @@ const deleteContact = {
     payload: 'Contact Id',
 }
 
-const filter
+const changeFilter = {
+    type: 'filter/changeFilter',
+    payload: 'Filter value',
+}
