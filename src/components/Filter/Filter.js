@@ -20,6 +20,7 @@ export const Filter = () => {
         className={css.formAddBook__input}
         type="text"
         name="filter"
+        value={filter}
         onChange={handleChange}
       />
     </label>
