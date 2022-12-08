@@ -24,13 +24,13 @@ export const App = () => {
     save(CONTACTS_KEY, contacts);
   }, [contacts]);
 
-  const addContact = data => {
-    contacts.find(
-      contact => data.name.toLowerCase() === contact.name.toLocaleLowerCase()
-    )
-      ? alert(`${data.name} is already in contacts`)
-      : setContacts(contacts => [data, ...contacts]);
-  };
+  // const addContact = data => {
+  //   contacts.find(
+  //     contact => data.name.toLowerCase() === contact.name.toLocaleLowerCase()
+  //   )
+      // ? alert(`${data.name} is already in contacts`)
+  //     : setContacts(contacts => [data, ...contacts]);
+  // };
 
   const deleteContact = contactId => {
     const newArray = contacts.filter(contact => contact.id !== contactId);
@@ -64,7 +64,7 @@ export const App = () => {
       }}
     >
       <Section title={'Phonebook'}>
-        <ContactForm onSubmitProp={addContact} />
+        <ContactForm />
       </Section>
       <Section title={'Contacts'}>
         <Filter filter={filter} changeFilter={handleChangeFilter} />
