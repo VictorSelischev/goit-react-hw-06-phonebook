@@ -1,18 +1,20 @@
 import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/actions';
 
 export const ContactForm = () => {
-
   const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
-  const addContact = data => {
+  const addContact = name => {
     contacts.find(
-      contact => data.name.toLowerCase() === contact.name.toLocaleLowerCase()
+      contact => name.toLowerCase() === contact.name.toLocaleLowerCase()
     )
       ? alert(`${data.name} is already in contacts`)
-      : contacts = [data, ...contacts];
+      : (contacts = [data, ...contacts]);
   };
 
   const handleSubmit = evt => {
@@ -20,7 +22,8 @@ export const ContactForm = () => {
     const form = evt.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    addContact({ id: nanoid(), name: name, number: number });
+    dispatch(addContact(name, number));
+    // addContact({ id: nanoid(), name: name, number: number });
     form.reset();
   };
 
