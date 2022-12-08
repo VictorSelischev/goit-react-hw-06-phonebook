@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
   //   setContacts(newArray);
   // };
 
-export const ContactElement = ({ id, name, number}) => {
+export const ContactElement = ({contact}) => {
   return (
     <div>
       <span className={css.contact__name}>
-        {name}: {number}
+        {contact.name}: {contact.number}
       </span>
       <button type="button">
         Delete
