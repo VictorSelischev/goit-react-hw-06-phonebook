@@ -21,7 +21,7 @@ export const Filter = () => {
         type="text"
         name="filter"
         value={filter}
-        onChange={handleChange}
+        onChange={() => handleChange()}
       />
     </label>
   );
