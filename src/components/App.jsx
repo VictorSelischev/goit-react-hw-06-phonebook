@@ -1,9 +1,9 @@
-import { ContactForm } from './ContactForm/ContactForm';
 import { Section } from './Section/Section';
+import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsList } from './Contacts/ContactsList';
 import { Filter } from './Filter/Filter';
-import { useState, useEffect } from 'react';
-import { save, load } from '../services/utilitsLocalStorage';
+// import { useState, useEffect } from 'react';
+// import { save, load } from '../services/utilitsLocalStorage';
 
 //     contacts: [
       // { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -13,16 +13,16 @@ import { save, load } from '../services/utilitsLocalStorage';
 //     ]
 
 export const App = () => {
-  const CONTACTS_KEY = 'contacts';
+  // const CONTACTS_KEY = 'contacts';
 
-  const [contacts, setContacts] = useState(() => {
-    return load(CONTACTS_KEY) ?? [];
-  });
-  const [filter, setFilter] = useState('');
+  // const [contacts, setContacts] = useState(() => {
+  //   return load(CONTACTS_KEY) ?? [];
+  // });
+  // const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    save(CONTACTS_KEY, contacts);
-  }, [contacts]);
+  // useEffect(() => {
+  //   save(CONTACTS_KEY, contacts);
+  // }, [contacts]);
 
   // const addContact = data => {
   //   contacts.find(
@@ -41,14 +41,14 @@ export const App = () => {
   //   setFilter(evt.target.value);
   // };
 
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
-  };
+  // const getVisibleContacts = () => {
+  //   const normalizedFilter = filter.toLowerCase();
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(normalizedFilter)
+  //   );
+  // };
 
-  const visibleContacts = getVisibleContacts();
+  // const visibleContacts = getVisibleContacts();
 
   return (
     <div
@@ -69,7 +69,7 @@ export const App = () => {
       <Section title={'Contacts'}>
         <Filter />
         <ContactsList
-          contacts={visibleContacts}
+          // contacts={visibleContacts}
           // onDeleteContact={deleteContact}
         />
       </Section>
