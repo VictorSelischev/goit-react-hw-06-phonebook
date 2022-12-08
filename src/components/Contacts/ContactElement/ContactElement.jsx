@@ -12,7 +12,7 @@ export const ContactElement = ({ id, name, number}) => {
       <span className={css.contact__name}>
         {name}: {number}
       </span>
-      <button type="button" onClick={() => deleteContact(id)}>
+      <button type="button">
         Delete
       </button>
     </div>

@@ -32,10 +32,10 @@ export const App = () => {
   //     : setContacts(contacts => [data, ...contacts]);
   // };
 
-  const deleteContact = contactId => {
-    const newArray = contacts.filter(contact => contact.id !== contactId);
-    setContacts(newArray);
-  };
+  // const deleteContact = contactId => {
+  //   const newArray = contacts.filter(contact => contact.id !== contactId);
+  //   setContacts(newArray);
+  // };
 
   // const handleChangeFilter = evt => {
   //   setFilter(evt.target.value);
@@ -67,10 +67,10 @@ export const App = () => {
         <ContactForm />
       </Section>
       <Section title={'Contacts'}>
-        <Filter filter={filter} changeFilter={handleChangeFilter} />
+        <Filter />
         <ContactsList
           contacts={visibleContacts}
-          onDeleteContact={deleteContact}
+          // onDeleteContact={deleteContact}
         />
       </Section>
     </div>
