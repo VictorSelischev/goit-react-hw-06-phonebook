@@ -6,17 +6,14 @@ import { deleteContact } from 'redux/actions';
 export const ContactElement = ({ contact }) => {
   const dispatch = useDispatch();
 
-  // const handelDelete = contactId => {
-  //   const newArray = contacts.filter(contact => contact.id !== contactId);
-  //   setContacts(newArray);
-  // };
+  const handelDelete = () => dispatch(deleteContact(contact.id));
 
   return (
     <div>
       <span className={css.contact__name}>
         {contact.name}: {contact.number}
       </span>
-      <button type="button" onClick={() => dispatch(deleteContact(contact.id))}>
+      <button type="button" onClick={handelDelete}>
         Delete
       </button>
     </div>
