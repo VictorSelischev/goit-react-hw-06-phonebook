@@ -9,12 +9,12 @@ export const ContactForm = () => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  const addContact = name => {
+  const comparisonName = (name, number) => {
     contacts.find(
       contact => name.toLowerCase() === contact.name.toLocaleLowerCase()
     )
-      ? alert(`${data.name} is already in contacts`)
-      : (contacts = [data, ...contacts]);
+      ? alert(`${name} is already in contacts`)
+      : dispatch(addContact(name, number));
   };
 
   const handleSubmit = evt => {
@@ -22,7 +22,8 @@ export const ContactForm = () => {
     const form = evt.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    dispatch(addContact(name, number));
+    comparisonName(name, number);
+
     // addContact({ id: nanoid(), name: name, number: number });
     form.reset();
   };
