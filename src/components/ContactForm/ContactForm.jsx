@@ -1,5 +1,4 @@
 import css from './ContactForm.module.css';
-import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
@@ -23,8 +22,6 @@ export const ContactForm = () => {
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     comparisonName(name, number);
-
-    // addContact({ id: nanoid(), name: name, number: number });
     form.reset();
   };
 
