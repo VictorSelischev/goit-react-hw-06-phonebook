@@ -9,7 +9,8 @@ export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleChange = e => {
-    const value = e.target.elements.name.value;
+    const value = e.target.value;
+    console.log(value);
     dispatch(setValueFilter(value));
   };
 
@@ -21,7 +22,7 @@ export const Filter = () => {
         type="text"
         name="filter"
         value={filter}
-        onChange={() => handleChange()}
+        onChange={handleChange}
       />
     </label>
   );
