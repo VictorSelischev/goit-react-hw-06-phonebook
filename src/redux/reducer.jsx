@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+// import { combineReducers } from "redux";
 
 // const initialState = {
 //   contacts: [
@@ -19,7 +19,7 @@ const contactsInitialState = [
 
 const filterInitialState = '';
 
-const contactsReducer = (state = contactsInitialState, action) => {
+export const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
     case 'contacts/addContact':
       return [action.payload, ...state];
@@ -30,7 +30,7 @@ const contactsReducer = (state = contactsInitialState, action) => {
   }
 };
 
-const filterReducer = (state = filterInitialState, action) => {
+export const filterReducer = (state = filterInitialState, action) => {
   switch (action.type) {
     case 'filter/setValueFilter':
       return action.payload;
@@ -66,7 +66,7 @@ const filterReducer = (state = filterInitialState, action) => {
 //   };
 // };
 
-export const rootReducer = combineReducers({
-    contacts: contactsReducer,
-    filter: filterReducer,
-})
+// export const rootReducer = combineReducers({
+//     contacts: contactsReducer,
+//     filter: filterReducer,
+// })
