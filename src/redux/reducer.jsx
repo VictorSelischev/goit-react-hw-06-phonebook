@@ -1,4 +1,5 @@
 // import { combineReducers } from "redux";
+import { addContact, deleteContact, setValueFilter } from "./actions";
 
 // const initialState = {
 //   contacts: [
@@ -21,9 +22,9 @@ const filterInitialState = '';
 
 export const contactsReducer = (state = contactsInitialState, action) => {
   switch (action.type) {
-    case 'contacts/addContact':
+    case addContact.type:
       return [action.payload, ...state];
-    case 'contacts/deleteContact':
+    case deleteContact/type:
       return state.filter(contact => contact.id !== action.payload);
     default:
       return state;
@@ -32,12 +33,14 @@ export const contactsReducer = (state = contactsInitialState, action) => {
 
 export const filterReducer = (state = filterInitialState, action) => {
   switch (action.type) {
-    case 'filter/setValueFilter':
+    case setValueFilter.type:
       return action.payload;
     default:
       return state;
   }
 };
+
+// ====================================
 
 // export const rootReducer = (state = initialState, action) => {
 //   switch (action.type) {
@@ -57,7 +60,7 @@ export const filterReducer = (state = filterInitialState, action) => {
 //   }
 // };
 
-
+// ==========================================
 
 // export const rootReducer = (state = {}, action) => {
 //   return {
