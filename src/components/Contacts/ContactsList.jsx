@@ -3,18 +3,20 @@ import { ContactElement } from './ContactElement/ContactElement';
 import { useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
 
-const getVisibleContacts = (contacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-  return contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedFilter)
-  );
-};
+// const getVisibleContacts = (contacts, filter) => {
+//   const normalizedFilter = filter.toLowerCase();
+//   return contacts.filter(contact =>
+//     contact.name.toLowerCase().includes(normalizedFilter)
+//   );
+// };
 
 export const ContactsList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const visibleContacts = getVisibleContacts(contacts, filter);
+  console.log(contacts);
 
+  // const normalizedFilter = filter.toLowerCase();
+  const visibleContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
   return (
     <ul className={css.contact__list}>
       {visibleContacts.map(contact => (

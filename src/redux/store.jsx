@@ -1,13 +1,16 @@
-// import { createStore } from 'redux';
-// import { devToolsEnhancer } from '@redux-devtools/extension';
 import { configureStore } from '@reduxjs/toolkit';
-// import { rootReducer } from './reducer';
-// import { contactsReducer, filterReducer } from './reducer';
 import { contactsReducer } from './contactsSlice';
 import { filterReducer } from './filterSlice';
 
-// const enhancer = devToolsEnhancer();
-// export const store = createStore(rootReducer, enhancer);
+// import { persistStore, persistReducer } from 'redux-persist'
+// import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
+
+// const persistConfig = {
+//   key: 'root',
+//   storage,
+// }
+
+// const persistedClickReducer = persistReducer(persistConfig, contactsReducer)
 
 export const store = configureStore({
     reducer: {
@@ -15,3 +18,5 @@ export const store = configureStore({
         filter: filterReducer,
     },
 });
+
+// export const persistor = persistStore(store);
