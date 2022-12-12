@@ -11,7 +11,7 @@ export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactsInitialState,
   reducers: {
-    addContacts: {
+    addContact: {
       reducer(state, action) {
         state.unshift(action.payload);
       },
