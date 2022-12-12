@@ -37,14 +37,20 @@ export const contactsReducer = createReducer(contactsInitialState, {
   [deleteContact]: (state, action) => {return state.filter(contact => contact.id !== action.payload)},
 });
 
-export const filterReducer = (state = filterInitialState, action) => {
-  switch (action.type) {
-    case setValueFilter.type:
-      return action.payload;
-    default:
-      return state;
+// export const filterReducer = (state = filterInitialState, action) => {
+//   switch (action.type) {
+//     case setValueFilter.type:
+//       return action.payload;
+//     default:
+//       return state;
+//   }
+// };
+
+export const filterReducer = createReducer(filterInitialState, {
+  [setValueFilter]: (state, action) => {
+    return action.payload
   }
-};
+})
 
 // ====================================
 
