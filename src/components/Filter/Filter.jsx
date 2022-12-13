@@ -6,12 +6,10 @@ import { setValueFilter } from 'redux/filterSlice';
 
 export const Filter = () => {
   const filter = useSelector(getFilter);
-  console.log(filter);
   const dispatch = useDispatch();
 
   const handleChange = e => {
     const value = e.target.value;
-    console.log(value);
     dispatch(setValueFilter(value));
   };
 
