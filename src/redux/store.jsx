@@ -6,15 +6,15 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 
 const persistConfig = {
-  key: 'root',
+  key: 'contacts',
   storage,
 };
 
-const persistedClickReducer = persistReducer(persistConfig, contactsReducer);
+const persistedReducer = persistReducer(persistConfig, contactsReducer);
 
 export const store = configureStore({
   reducer: {
-    contacts: persistedClickReducer,
+    contacts: persistedReducer,
     filter: filterReducer,
   },
 });
