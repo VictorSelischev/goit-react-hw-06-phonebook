@@ -85,5 +85,5 @@ redux-persist =========================================
 
 1. Устанавливаем redux-persist
 2. В store пишем конфигурацию редюсера, который сохраняем в localStorage
-3. В store создаем обернутый стори передаем его в configureStore
+3. В store создаем обернутый стор и передаем его в configureStore
 4. В index.js оборачиваем react-приложение в PersistGate
