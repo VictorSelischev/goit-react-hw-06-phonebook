@@ -11,6 +11,7 @@ export const Filter = () => {
 
   const handleChange = e => {
     const value = e.target.value;
+    console.log(value);
     dispatch(setValueFilter(value));
   };
 
