@@ -9,7 +9,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
 
   const comparisonName = (name, number) => {
-    contacts.contacts.find(
+    contacts.find(
       contact => name.toLowerCase() === contact.name.toLocaleLowerCase()
     )
       ? alert(`${name} is already in contacts`)
